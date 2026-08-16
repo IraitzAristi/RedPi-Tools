@@ -1,1 +1,73 @@
-# RedPi-Tools
+**Castellano** · [Euskara](README.eu.md) · [English](README.en.md)
+
+# RedPi Tools
+
+Conjunto de herramientas de auditoría de seguridad en Python, hecho a medida para
+el proyecto **RedPi**, una red empresarial simulada (LAN / DMZ / WAN) usada para
+aprender y demostrar seguridad de redes. Las herramientas se manejan por menú y se
+dividen en defensivas y ofensivas.
+
+> **Uso educativo / autorizado únicamente.** Estas herramientas se escribieron
+> para un laboratorio propio y aislado, como parte de un proyecto de ciberseguridad
+> de formación profesional. Úsalas solo contra sistemas de tu propiedad o para los
+> que tengas permiso explícito por escrito. Ejecutarlas contra sistemas que no
+> controlas puede ser ilegal.
+
+Parte del [proyecto RedPi](https://iraitzaristi.github.io) · allí está el writeup
+y la documentación completa.
+
+## Herramientas
+
+**Defensivas** (`defentsa/`)
+- `mysql_kudeaketa.py`: Interfaz de gestión de la base de datos MySQL.
+- `pasahitz_analizatzailea.py`: Analizador de robustez de las contraseñas almacenadas.
+- `pasahitz_generadorea.py`: Generador de contraseñas fuertes (hashea la salida con SHA-256).
+
+**Ofensivas** (`erasoa/`)
+- `sareko_eskanerra.py`: Escáner de red, puertos y servicios.
+- `web_analisia.py`: Fuzzer de rutas web.
+- `sniffer.py`: Sniffer de tráfico HTTP/FTP.
+- `arp_spoofer.py`: ARP spoofer (MitM).
+- `xmlrpc.py`: Fuerza bruta de credenciales al XML-RPC de WordPress.
+  El diccionario por defecto es de prueba: tiene 7 contraseñas e incluye la del laboratorio para simular el ataque. Para un caso real, usa un diccionario como rockyou o los de SecLists.
+
+`menu_nagusia.py` es el punto de entrada que une los dos menús.
+
+## Requisitos
+
+- Python 3
+- `nmap` instalado en el sistema (lo usa el escáner)
+- Paquetes de Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+Algunas herramientas ofensivas (sniffer, ARP spoofer, escáner) capturan o
+construyen paquetes en crudo y necesitan ejecutarse con privilegios de root (`sudo`).
+
+## Uso
+
+```bash
+python3 menu_nagusia.py
+```
+
+## Configuración
+
+Las herramientas se configuraron para el laboratorio RedPi, así que algunos scripts
+contienen **valores del laboratorio fijados en el código** (IPs objetivo como
+`172.16.1.10` y credenciales de prueba de la base de datos `technova_db`). Son
+valores desechables de un entorno simulado y aislado, ajusta las IPs, los objetivos
+y las credenciales al principio de cada script para tu propio entorno autorizado.
+
+Las credenciales de MySQL (`redpi`/`admin`) están escritas en el código **a propósito**: son de prueba, con fines didácticos, y solo existen en el laboratorio aislado. En un entorno real no se dejarían en el código: se leerían de variables de entorno, se pedirían al ejecutar (por ejemplo, con `getpass`) o se guardarían en un gestor de secretos.
+
+## Notas
+
+- La interfaz y los comentarios del código están en **euskera**.
+- `reverse_shellPHP.txt` es un payload estándar de reverse shell en PHP usado en el
+  caso práctico del proyecto, incluido para completar.
+
+## Licencia
+
+MIT. Ver `LICENSE`.
