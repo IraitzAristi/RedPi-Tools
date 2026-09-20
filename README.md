@@ -26,7 +26,7 @@ documentation there.
 - `sareko_eskanerra.py`: Network/port/service scanner.
 - `web_analisia.py`: Web path fuzzer.
 - `sniffer.py`: HTTP/FTP traffic sniffer.
-- `arp_spoofer.py`: ARP spoofer (MITM).
+- `arp_spoofer.py`: ARP spoofer (MitM).
 - `xmlrpc.py`: WordPress XML-RPC credential brute-forcer.
 
 `menu_nagusia.py` is the entry point that ties the two menus together.
