@@ -2,12 +2,12 @@
 
 # RedPi Tools
 
-Custom Python security-audit toolkit built for the **RedPi** project — a
+Custom Python security-audit toolkit built for the **RedPi** project, a
 simulated enterprise network (LAN / DMZ / WAN) used to learn and demonstrate
 network security. The toolkit is menu-driven and split into defensive and
 offensive tools.
 
-> ⚠️ **Authorized / educational use only.** These tools were written for a
+> **Authorized / educational use only.** These tools were written for a
 > self-built, isolated lab as part of a vocational cybersecurity project. Use
 > them only against systems you own or have explicit written permission to test.
 > Running them against systems you don't control may be illegal.
@@ -18,16 +18,16 @@ documentation there.
 ## Tools
 
 **Defensive** (`defentsa/`)
-- `mysql_kudeaketa.py` — MySQL database management interface.
-- `pasahitz_analizatzailea.py` — password-strength analyzer for stored credentials.
-- `pasahitz_generadorea.py` — strong password generator (hashes output with SHA-256).
+- `mysql_kudeaketa.py`: MySQL database management interface.
+- `pasahitz_analizatzailea.py`: Password-strength analyzer for stored credentials.
+- `pasahitz_generadorea.py`: Strong password generator (hashes output with SHA-256).
 
 **Offensive** (`erasoa/`)
-- `sareko_eskanerra.py` — network/port/service scanner.
-- `web_analisia.py` — web path fuzzer.
-- `sniffer.py` — HTTP/FTP traffic sniffer.
-- `arp_spoofer.py` — ARP spoofer (MITM).
-- `xmlrpc.py` — WordPress XML-RPC credential brute-forcer.
+- `sareko_eskanerra.py`: Network/port/service scanner.
+- `web_analisia.py`: Web path fuzzer.
+- `sniffer.py`: HTTP/FTP traffic sniffer.
+- `arp_spoofer.py`: ARP spoofer (MITM).
+- `xmlrpc.py`: WordPress XML-RPC credential brute-forcer.
 
 `menu_nagusia.py` is the entry point that ties the two menus together.
 
@@ -55,15 +55,15 @@ python3 menu_nagusia.py
 The tools were configured for the RedPi lab, so some scripts contain **hard-coded
 lab values** (target IPs like `172.16.1.10`, and demo database credentials for
 the `technova_db` test database). These are throwaway values from an isolated
-simulated environment — adjust the IPs, targets and credentials at the top of each
+simulated environment, adjust the IPs, targets and credentials at the top of each
 script for your own authorized environment.
 
 ## Notes
 
 - The interface and code comments are written in **Basque** (Euskara).
-- `reverse_shellPHP.txt` is a standard PHP reverse-shell payload used in the
-  project's practical case; included for completeness.
+- `reverse_shellPHP.txt` is a standard PHP reverse shell payload used in the
+  project's practical case, included for completeness.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT - see `LICENSE`.
