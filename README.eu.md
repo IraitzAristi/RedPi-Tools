@@ -21,7 +21,7 @@ dokumentazio osoa han daude.
 **Defentsiboak** (`defentsa/`)
 - `mysql_kudeaketa.py`: MySQL datu-basea kudeatzeko interfazea.
 - `pasahitz_analizatzailea.py`: Gordetako pasahitzen sendotasun-analizatzailea.
-- `pasahitz_generadorea.py`; Pasahitz sendoen sortzailea (irteera SHA-256 hash-arekin).
+- `pasahitz_generadorea.py`: Pasahitz sendoen sortzailea (irteera SHA-256 hash-arekin).
 
 **Ofentsiboak** (`erasoa/`)
 - `sareko_eskanerra.py`: Sare, ataka eta zerbitzuen eskanerra.
@@ -62,11 +62,20 @@ kredentzialak script bakoitzaren hasieran zure baimendutako ingurunerako.
 
 MySQL-eko kredentzialak (`redpi`/`admin`) kodean idatzita daude **nahita**: proba kredentzialak dira, helburu didaktikoarekin, eta laborategi isolatuan bakarrik existitzen dira. Benetako ingurune batean ez lirateke kodean utziko: ingurune-aldagaietatik irakurriko lirateke, exekutatzean eskatuko lirateke (adibidez, `getpass`-ekin) edo sekretuen kudeatzaile batean gordeko lirateke.
 
+## Limitazio ezagunak
+
+Proiektu didaktikoa da (nire SMR-ko TFG-a), eta zati batzuk ez daude benetako erabilerarako pentsatuta:
+
+- `pasahitz_generadorea.py`-k `random` modulua erabiltzen du, eta ez da kriptografikoki segurua. Benetako pasahitzak sortzeko `secrets` erabiliko nuke.
+- Script berak pasahitzaren SHA-256 hash bat erakusten du, gatzik gabe. SHA-256 azkarra da eta gatzik gabe, aurrez kalkulatutako taulen erasoen aurrean ahula, beraz ez da pasahitzak gordetzeko balio: horretarako funtzio motelak eta gatzdunak erabiltzen dira, bcrypt edo Argon2 bezala.
+
+Proiektuaren hurrengo bertsio batean hobetuko ditut (ASIR-eko TFG-an).
+
 ## Oharrak
 
 - Interfazea eta kodearen iruzkinak **euskaraz** daude.
 - `reverse_shellPHP.txt` proiektuaren kasu praktikoan erabilitako PHP reverse
-  shell payload estandar bat da; osotasunagatik sartua.
+  shell payload estandar bat da, osotasunagatik sartua.
 
 ## Lizentzia
 

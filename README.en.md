@@ -63,6 +63,15 @@ script for your own authorized environment.
 
 The MySQL credentials (`redpi`/`admin`) are hard-coded **on purpose**: they are test credentials for teaching purposes and only exist in the isolated lab. In a real environment they would not be left in the code: they would be read from environment variables, prompted for at runtime (for example, with `getpass`) or stored in a secrets manager.
 
+## Known limitations
+
+This is a teaching project (my SMR final project), and some parts are not meant for real use:
+
+- `pasahitz_generadorea.py` uses the `random` module, which is not cryptographically secure. To generate real passwords I would use `secrets`.
+- The same script shows an unsalted SHA-256 hash of the password. SHA-256 is fast and without a salt, vulnerable to precomputed-table attacks, so it is not suitable for storing passwords: that calls for slow, salted functions such as bcrypt or Argon2.
+
+I will improve them in a future version of the project (Future update for ASIR final project).
+
 ## Notes
 
 - The interface and code comments are written in **Basque** (Euskara).

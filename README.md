@@ -62,6 +62,15 @@ y las credenciales al principio de cada script para tu propio entorno autorizado
 
 Las credenciales de MySQL (`redpi`/`admin`) están escritas en el código **a propósito**: son de prueba, con fines didácticos, y solo existen en el laboratorio aislado. En un entorno real no se dejarían en el código: se leerían de variables de entorno, se pedirían al ejecutar (por ejemplo, con `getpass`) o se guardarían en un gestor de secretos.
 
+## Limitaciones conocidas
+
+Es un proyecto didáctico (mi TFG de SMR), y algunas partes no están pensadas para un uso real:
+
+- `pasahitz_generadorea.py` usa el módulo `random`, que no es criptográficamente seguro. Para generar contraseñas reales usaría `secrets`.
+- El mismo script muestra un hash SHA-256 sin sal de la contraseña. SHA-256 es rápido y sin sal, vulnerable a ataques con tablas precalculadas, así que no sirve para almacenar contraseñas: para eso se usan funciones lentas y con sal, como bcrypt o Argon2.
+
+Las mejoraré en una próxima versión del proyecto (TFG de ASIR).
+
 ## Notas
 
 - La interfaz y los comentarios del código están en **euskera**.
